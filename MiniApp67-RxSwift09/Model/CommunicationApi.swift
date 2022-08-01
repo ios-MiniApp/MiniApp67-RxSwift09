@@ -28,7 +28,7 @@ struct AS: Codable{
 
 }
 
-class Model {
+class CommunicationApi {
 
     func getAPI(text: String, _ after:@escaping ([String]) -> ()){
 

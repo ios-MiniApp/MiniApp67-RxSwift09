@@ -32,9 +32,9 @@ class ViewController: UIViewController {
     private func setupBinding() {
 
         viewModel = ViewModel(
-            text: inputTextField.rx.text.orEmpty.asObservable(),
-            searchButton: searchButton.rx.tap.asObservable(),
-            tableViewIndexPath: tableView.rx.itemSelected.asObservable()
+            inputTextFieldObservable: inputTextField.rx.text.orEmpty.asObservable(),
+            searchButtonObservable: searchButton.rx.tap.asObservable(),
+            tableViewIndexPathObservable: tableView.rx.itemSelected.asObservable()
         )
 
         viewModel?.responseTextsObservable
@@ -43,13 +43,13 @@ class ViewController: UIViewController {
 
         viewModel?.responseTextObservable
             .subscribe(onNext: {
-                self.aaa(text: $0)
-                print($0)
+                self.transitionScreen(text: $0)
             })
             .disposed(by: disposeBag)
+
     }
 
-    private func aaa(text: String) {
+    private func transitionScreen(text: String) {
         let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "SecondViewID") as! SecondViewController
         nextVC.searchedText = text
         self.navigationController?.pushViewController(nextVC, animated: true)

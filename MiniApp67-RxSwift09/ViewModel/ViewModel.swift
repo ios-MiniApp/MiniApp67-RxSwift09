@@ -17,20 +17,19 @@ class ViewModel {
     private var responseTexts: [String] = []
     private var responseText: String = ""
 
-    private var model = Model()
-    private var secondViewModel: SecondViewModel?
+    private var communicationApi = CommunicationApi()
     private let disposeBag = DisposeBag()
 
-    init(text: Observable<String>,
-         searchButton: Observable<Void>,
-         tableViewIndexPath: Observable<IndexPath>){
+    init(inputTextFieldObservable: Observable<String>,
+         searchButtonObservable: Observable<Void>,
+         tableViewIndexPathObservable: Observable<IndexPath>){
 
-        text.asObservable()
+        inputTextFieldObservable.asObservable()
             //.debounce(.seconds(), scheduler: MainScheduler.instance)
             .subscribe(onNext: { text in
                 self.responseText = text
                 if !self.responseText.isEmpty {
-                    self.model.getAPI(text: self.responseText, { array in
+                    self.communicationApi.getAPI(text: self.responseText, { array in
                         self.responseTexts = array
                         self.responseTextsObservable.onNext(self.responseTexts)
                     })
@@ -38,13 +37,13 @@ class ViewModel {
             })
             .disposed(by: disposeBag)
 
-        tableViewIndexPath.asObservable()
+        tableViewIndexPathObservable.asObservable()
             .subscribe(onNext: { indexPath in
                 self.responseTextObservable.onNext(self.responseTexts[indexPath.row])
             })
             .disposed(by: disposeBag)
 
-        searchButton.asObservable()
+        searchButtonObservable.asObservable()
             .subscribe(onNext: {
                 self.responseTextObservable.onNext(self.responseText)
             })

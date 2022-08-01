@@ -19,7 +19,7 @@
 		877BF070289518960034518E /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 877BF06F289518960034518E /* RxSwift */; };
 		877BF073289518A30034518E /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 877BF072289518A30034518E /* Alamofire */; };
 		877BF075289518B20034518E /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877BF074289518B20034518E /* ViewModel.swift */; };
-		877BF07728951A3F0034518E /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877BF07628951A3F0034518E /* Model.swift */; };
+		877BF07728951A3F0034518E /* CommunicationApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877BF07628951A3F0034518E /* CommunicationApi.swift */; };
 		87E97B4D28976E140058319F /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E97B4B28976E140058319F /* TableViewCell.swift */; };
 		87E97B4E28976E140058319F /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87E97B4C28976E140058319F /* TableViewCell.xib */; };
 		87E97B5028976EB80058319F /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E97B4F28976EB80058319F /* DataSource.swift */; };
@@ -37,7 +37,7 @@
 		877BF0642895157E0034518E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		877BF0662895157E0034518E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		877BF074289518B20034518E /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
-		877BF07628951A3F0034518E /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		877BF07628951A3F0034518E /* CommunicationApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunicationApi.swift; sourceTree = "<group>"; };
 		87E97B4B28976E140058319F /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		87E97B4C28976E140058319F /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 		87E97B4F28976EB80058319F /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
@@ -61,7 +61,7 @@
 			isa = PBXGroup;
 			children = (
 				87E97B4F28976EB80058319F /* DataSource.swift */,
-				877BF07628951A3F0034518E /* Model.swift */,
+				877BF07628951A3F0034518E /* CommunicationApi.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -202,7 +202,7 @@
 				876E04932897805500225FA2 /* SecondViewController.swift in Sources */,
 				876E04952897A0BE00225FA2 /* SecondViewModel.swift in Sources */,
 				87E97B5028976EB80058319F /* DataSource.swift in Sources */,
-				877BF07728951A3F0034518E /* Model.swift in Sources */,
+				877BF07728951A3F0034518E /* CommunicationApi.swift in Sources */,
 				877BF05D2895157D0034518E /* ViewController.swift in Sources */,
 				877BF0592895157D0034518E /* AppDelegate.swift in Sources */,
 				87E97B4D28976E140058319F /* TableViewCell.swift in Sources */,
