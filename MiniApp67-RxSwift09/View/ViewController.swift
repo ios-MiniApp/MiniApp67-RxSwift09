@@ -37,11 +37,11 @@ class ViewController: UIViewController {
             tableViewIndexPathObservable: tableView.rx.itemSelected.asObservable()
         )
 
-        viewModel?.responseTextsObservable
+        viewModel?.searchTextArrayObservable
             .bind(to: tableView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
 
-        viewModel?.responseTextObservable
+        viewModel?.searchTextObservable
             .subscribe(onNext: {
                 self.transitionScreen(text: $0)
             })

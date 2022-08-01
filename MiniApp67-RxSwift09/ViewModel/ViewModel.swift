@@ -12,10 +12,10 @@ import UIKit
 
 class ViewModel {
 
-    var responseTextsObservable = PublishSubject<[String]>()
-    var responseTextObservable = PublishSubject<String>()
-    private var responseTexts: [String] = []
-    private var responseText: String = ""
+    var searchTextArrayObservable = PublishSubject<[String]>()
+    var searchTextObservable = PublishSubject<String>()
+    private var searchTextArray: [String] = []
+    private var searchText: String = ""
 
     private var communicationApi = CommunicationApi()
     private let disposeBag = DisposeBag()
@@ -25,13 +25,14 @@ class ViewModel {
          tableViewIndexPathObservable: Observable<IndexPath>){
 
         inputTextFieldObservable.asObservable()
-            //.debounce(.seconds(), scheduler: MainScheduler.instance)
+        //.debounce(.seconds(), scheduler: MainScheduler.instance)
             .subscribe(onNext: { text in
-                self.responseText = text
-                if !self.responseText.isEmpty {
-                    self.communicationApi.getAPI(text: self.responseText, { array in
-                        self.responseTexts = array
-                        self.responseTextsObservable.onNext(self.responseTexts)
+                self.searchText = text
+
+                if !self.searchText.isEmpty {
+                    self.communicationApi.getAPI(text: self.searchText, { array in
+                        self.searchTextArray = array
+                        self.searchTextArrayObservable.onNext(self.searchTextArray)
                     })
                 }
             })
@@ -39,17 +40,15 @@ class ViewModel {
 
         tableViewIndexPathObservable.asObservable()
             .subscribe(onNext: { indexPath in
-                self.responseTextObservable.onNext(self.responseTexts[indexPath.row])
+                self.searchTextObservable.onNext(self.searchTextArray[indexPath.row])
             })
             .disposed(by: disposeBag)
 
         searchButtonObservable.asObservable()
             .subscribe(onNext: {
-                self.responseTextObservable.onNext(self.responseText)
+                self.searchTextObservable.onNext(self.searchText)
             })
             .disposed(by: disposeBag)
-
-        
     }
 
 }
